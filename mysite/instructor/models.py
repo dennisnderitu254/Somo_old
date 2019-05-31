@@ -6,10 +6,11 @@ class Instructor(models.Model):
 	title = models.CharField(max_length=50)
 	email = models.CharField(max_length=40)
 	instructorid = models.CharField(max_length=40)
+	courseid = models.CharField(max_length=50)
 
 class Course(models.Model):
 	coursetitle = models.CharField(max_length=50)
-	courseid = models.CharField(max_length=50)
+	courseid = models.PrimaryKey(max_length=50)
 
 
 class Video(models.Model):
@@ -17,7 +18,7 @@ class Video(models.Model):
 	description = models.CharField(max_length=50)
 	tags = models.CharField(max_length=40)
 	instructorid = models.CharField(max_length=50)
-	courseid = models.CharField(max_length=50)
+	courseid = models.ForeignKey(max_length=50)
 
 
 
